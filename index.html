@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إتقان | منصة إدارة المرافق والأصول الذكية</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ================= LOGIN SCREEN ================= -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="brand-mark">إ</div>
+      <div>
+        <div class="brand-name" id="loginBrandName">إتقان</div>
+        <div class="brand-sub" id="loginBrandSub">Itqan Facility Intelligence</div>
+      </div>
+    </div>
+    <h2 id="loginTitle">تسجيل الدخول</h2>
+    <p class="login-hint" id="loginHint">استخدم البيانات التجريبية: admin / itqan2026</p>
+    <form id="loginForm">
+      <label id="loginUserLabel">اسم المستخدم</label>
+      <input type="text" id="loginUsername" autocomplete="username" required>
+      <label id="loginPassLabel">كلمة المرور</label>
+      <input type="password" id="loginPassword" autocomplete="current-password" required>
+      <div class="login-error" id="loginError" style="display:none;"></div>
+      <button type="submit" id="loginSubmit">دخول</button>
+    </form>
+    <button class="lang-btn login-lang-btn" id="loginLangBtn" type="button">EN</button>
+  </div>
+</div>
+
+<div id="appRoot" style="display:none;">
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">إ</div>
+    <div>
+      <div class="brand-name" id="brandName">إتقان</div>
+      <div class="brand-sub" id="brandSub">Itqan Facility Intelligence</div>
+    </div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="nav-item active" data-section="dashboard">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+      <span data-k="nav_dashboard"></span>
+    </div>
+    <div class="nav-item" data-section="assistant">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3z"/></svg>
+      <span data-k="nav_assistant"></span>
+    </div>
+    <div class="nav-item" data-section="assets">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg>
+      <span data-k="nav_assets"></span>
+    </div>
+    <div class="nav-item" data-section="maintenance">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4l-3.3 3.3-2-2 3.3-3.3z"/></svg>
+      <span data-k="nav_maintenance"></span>
+    </div>
+    <div class="nav-item" data-section="space">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <span data-k="nav_space"></span>
+    </div>
+    <div class="nav-item" data-section="recommendations">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M10 22h4M12 2a6 6 0 0 0-4 10.5c.6.5 1 1.3 1 2.5h6c0-1.2.4-2 1-2.5A6 6 0 0 0 12 2z"/></svg>
+      <span data-k="nav_recommendations"></span>
+    </div>
+  </nav>
+  <div class="sidebar-foot">
+    <span data-k="foot_line1"></span><br>
+    <span data-k="foot_line2"></span>
+  </div>
+</aside>
+
+<!-- ================= MAIN ================= -->
+<div class="main">
+  <div class="topbar">
+    <div>
+      <h1 id="topbarTitle"></h1>
+      <p id="topbarSub"></p>
+    </div>
+    <div class="topbar-right">
+      <div class="search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94A2AC" stroke-width="2" style="flex-shrink:0;"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="">
+        <svg class="search-clear" id="searchClear" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A2AC" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </div>
+      <button class="lang-btn" id="langBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg>
+        <span id="langBtnLabel">EN</span>
+      </button>
+      <span style="font-size:12px; color:var(--text-2); display:flex; align-items:center;"><span class="live-dot"></span><span data-k="live"></span></span>
+      <button class="lang-btn" id="settingsBtn" title="AI Settings">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
+      <div class="avatar" id="avatarInitials" title="Log out" style="cursor:pointer;">جم</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ============ DASHBOARD ============ -->
+    <section class="section active" id="sec-dashboard">
+      <div class="grid grid-4" style="margin-bottom:18px;">
+        <div class="card kpi">
+          <div class="kpi-top">
+            <div><div class="kpi-label" data-k="kpi1_label"></div><div class="kpi-value" id="kpi1Value"></div></div>
+            <div class="kpi-icon" style="background:var(--teal-050); color:var(--teal-500);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13"/></svg>
+            </div>
+          </div>
+          <div class="kpi-trend" style="color:#1F7A45;" data-k="kpi1_trend"></div>
+        </div>
+        <div class="card kpi">
+          <div class="kpi-top">
+            <div><div class="kpi-label" data-k="kpi2_label"></div><div class="kpi-value" id="kpi2Value"></div></div>
+            <div class="kpi-icon" style="background:var(--amber-050); color:#9A6414;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+          </div>
+          <div class="kpi-trend" style="color:#9A6414;" data-k="kpi2_trend"></div>
+        </div>
+        <div class="card kpi">
+          <div class="kpi-top">
+            <div><div class="kpi-label" data-k="kpi3_label"></div><div class="kpi-value" id="kpi3Value"></div></div>
+            <div class="kpi-icon" style="background:var(--red-050); color:#B13D2F;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+            </div>
+          </div>
+          <div class="kpi-trend" style="color:#B13D2F;" id="kpi3Trend"></div>
+        </div>
+        <div class="card kpi">
+          <div class="kpi-top">
+            <div><div class="kpi-label" data-k="kpi4_label"></div><div class="kpi-value" id="kpi4Value"></div></div>
+            <div class="kpi-icon" style="background:var(--navy-900); color:#fff;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+          </div>
+          <div class="kpi-trend" style="color:var(--teal-500);" data-k="kpi4_trend"></div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-bottom:18px;">
+        <div class="card">
+          <div class="card-head">
+            <div><div class="card-title" data-k="util_by_cat_title"></div><div class="card-sub" data-k="last_30_days"></div></div>
+          </div>
+          <div class="chart-wrap" id="dashUtilChart"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div><div class="card-title" data-k="top_risk_title"></div><div class="card-sub" data-k="top_risk_sub"></div></div>
+          </div>
+          <div id="dashRiskList"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title" data-k="status_dist_title"></div><div class="card-sub" id="statusDistSub"></div></div>
+          <div style="display:flex; gap:14px; font-size:12px; color:var(--text-2);">
+            <span><span class="dot dot-green"></span> <span data-k="status_good"></span></span>
+            <span><span class="dot dot-amber"></span> <span data-k="status_warning"></span></span>
+            <span><span class="dot dot-red"></span> <span data-k="status_critical"></span></span>
+          </div>
+        </div>
+        <table>
+          <thead><tr>
+            <th data-k="th_category"></th><th data-k="th_total"></th><th data-k="status_good"></th>
+            <th data-k="status_warning"></th><th data-k="status_critical"></th><th data-k="th_status"></th>
+          </tr></thead>
+          <tbody id="dashCategoryTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ AI ASSISTANT ============ -->
+    <section class="section" id="sec-assistant">
+      <div class="grid" style="grid-template-columns:1fr 280px; align-items:start;">
+        <div class="card" style="padding:0; display:flex; flex-direction:column; height:600px; overflow:hidden;">
+          <div style="padding:16px 20px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; flex-shrink:0;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div class="kpi-icon" style="background:var(--teal-050); color:var(--teal-500); width:32px; height:32px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3z"/></svg>
+              </div>
+              <div>
+                <div style="font-weight:700; font-size:14px;" data-k="chat_title"></div>
+                <div style="font-size:11.5px; color:var(--text-2);" data-k="chat_sub"></div>
+              </div>
+            </div>
+            <span class="ai-badge"><span class="pulse-dot"></span><span data-k="live_ai"></span></span>
+          </div>
+          <div class="chat-messages" id="chatMessages"></div>
+          <div class="chat-input-row">
+            <input type="text" id="chatInput" placeholder="" autocomplete="off">
+            <button class="chat-send-btn" id="chatSend" aria-label="send" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="margin-bottom:12px;" data-k="suggestions_title"></div>
+          <div id="chatSuggestions"></div>
+          <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border); font-size:11.5px; color:var(--text-2); line-height:1.8;" data-k="chat_how_desc"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ASSETS ============ -->
+    <section class="section" id="sec-assets">
+      <div class="search-count" id="searchCount" style="display:none;"></div>
+      <div class="filters" id="assetFilters"></div>
+      <div class="card" style="padding:0; overflow:hidden;">
+        <table>
+          <thead>
+            <tr>
+              <th data-k="th_asset"></th><th data-k="th_category"></th><th data-k="th_location"></th>
+              <th data-k="th_utilization"></th><th data-k="th_health"></th><th data-k="th_last_maint"></th><th data-k="th_status"></th>
+            </tr>
+          </thead>
+          <tbody id="assetsTable"></tbody>
+        </table>
+        <div class="empty-hint" id="assetsEmpty" style="display:none;" data-k="no_results"></div>
+      </div>
+    </section>
+
+    <!-- ============ MAINTENANCE ============ -->
+    <section class="section" id="sec-maintenance">
+      <div class="grid grid-2" style="align-items:start;">
+        <div>
+          <div class="card-head" style="margin-bottom:14px;">
+            <div><div class="card-title" style="font-size:15px;" data-k="maint_title"></div>
+            <div class="card-sub" data-k="maint_sub"></div></div>
+          </div>
+          <div id="maintenanceList"></div>
+        </div>
+        <div class="card">
+          <div class="card-title" style="margin-bottom:14px;" data-k="how_title"></div>
+          <div style="font-size:12.5px; color:var(--text-2); line-height:2;" data-k="how_desc"></div>
+          <div style="margin-top:18px; padding-top:16px; border-top:1px solid var(--border);">
+            <div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:10px;"><span data-k="accuracy_label"></span><b>87٪</b></div>
+            <div class="bar-track"><div class="bar-fill" style="width:87%; background:var(--teal-500);"></div></div>
+          </div>
+          <div style="margin-top:16px;">
+            <div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:10px;"><span data-k="lead_time_label"></span><b id="leadTimeVal">14</b></div>
+            <div class="bar-track"><div class="bar-fill" style="width:70%; background:var(--amber-500);"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPACE UTILIZATION ============ -->
+    <section class="section" id="sec-space">
+      <div class="grid grid-2" style="margin-bottom:18px;">
+        <div class="card">
+          <div class="card-head">
+            <div><div class="card-title" data-k="heatmap_title"></div><div class="card-sub" data-k="heatmap_sub"></div></div>
+          </div>
+          <div id="heatmap"></div>
+          <div style="display:flex; align-items:center; gap:6px; margin-top:14px; font-size:11px; color:var(--text-3);">
+            <span data-k="low"></span>
+            <div style="display:flex; gap:2px;">
+              <span style="width:14px;height:10px;background:#DCE9E7;display:inline-block;border-radius:3px;"></span>
+              <span style="width:14px;height:10px;background:#7FCFC0;display:inline-block;border-radius:3px;"></span>
+              <span style="width:14px;height:10px;background:#0EA894;display:inline-block;border-radius:3px;"></span>
+              <span style="width:14px;height:10px;background:#0B7A6A;display:inline-block;border-radius:3px;"></span>
+            </div>
+            <span data-k="high"></span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div><div class="card-title" data-k="underused_title"></div><div class="card-sub" data-k="underused_sub"></div></div>
+          </div>
+          <div id="underusedList"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title" data-k="building_chart_title"></div><div class="card-sub" data-k="building_chart_sub"></div></div>
+        </div>
+        <div class="chart-wrap" id="buildingChart"></div>
+      </div>
+    </section>
+
+    <!-- ============ RECOMMENDATIONS ============ -->
+    <section class="section" id="sec-recommendations">
+      <div class="rec-toolbar">
+        <div class="tabs" id="recTabs" style="margin-bottom:0;">
+          <div class="tab active" data-filter="all" data-k="tab_all"></div>
+          <div class="tab" data-filter="redistribute" data-k="tab_redistribute"></div>
+          <div class="tab" data-filter="rent" data-k="tab_rent"></div>
+          <div class="tab" data-filter="invest" data-k="tab_invest"></div>
+          <div class="tab" data-filter="maintenance" data-k="tab_maintenance"></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="ai-badge" id="recAiBadge" style="display:none;"><span class="pulse-dot"></span><span data-k="live_ai"></span></span>
+          <button class="icon-btn" id="recRegenerate" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            <span data-k="regenerate_btn"></span>
+          </button>
+        </div>
+      </div>
+      <div id="recStatus"></div>
+      <div class="grid grid-3" id="recGrid"></div>
+    </section>
+
+  </div>
+</div>
+</div><!-- /appRoot -->
+
+<!-- ================= AI SETTINGS MODAL (model selection) ================= -->
+<div id="settingsModal" class="modal-overlay" style="display:none;">
+  <div class="modal-card">
+    <h2 id="settingsTitle">إعدادات الذكاء الاصطناعي</h2>
+    <p class="login-hint" id="settingsHint">اختر نموذج Groq المستخدم في المساعد الذكي والتوصيات.</p>
+    <label id="settingsModelLabel">النموذج (Model)</label>
+    <select id="groqModelSelect">
+      <option value="llama-3.3-70b-versatile">llama-3.3-70b-versatile</option>
+      <option value="llama-3.1-8b-instant">llama-3.1-8b-instant</option>
+      <option value="openai/gpt-oss-120b">openai/gpt-oss-120b</option>
+      <option value="openai/gpt-oss-20b">openai/gpt-oss-20b</option>
+    </select>
+    <div style="display:flex; gap:10px; margin-top:14px;">
+      <button type="button" id="settingsSave" class="settings-save-btn">حفظ</button>
+      <button type="button" id="settingsCancel" class="settings-cancel-btn">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
