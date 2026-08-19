@@ -419,27 +419,37 @@ const DAY_LABELS = [
   {ar:"أحد", en:"Sun"}, {ar:"اثنين", en:"Mon"}, {ar:"ثلاثاء", en:"Tue"}, {ar:"أربعاء", en:"Wed"},
   {ar:"خميس", en:"Thu"}, {ar:"جمعة", en:"Fri"}, {ar:"سبت", en:"Sat"}
 ];
+const HOUR_LABELS = [
+  {ar:"8ص", en:"8 AM"},
+  {ar:"9ص", en:"9 AM"},
+  {ar:"10ص", en:"10 AM"},
+  {ar:"11ص", en:"11 AM"},
+  {ar:"12م", en:"12 PM"},
+  {ar:"1ع", en:"1 PM"},
+  {ar:"2ع", en:"2 PM"},
+  {ar:"3ع", en:"3 PM"}
+];
 const heatValues = [];
-for(let row=0; row<5; row++){
+for(let h=0; h<HOUR_LABELS.length; h++){
   const rowVals = [];
-  for(let col=0; col<7; col++){
-    const isWeekend = col===5;
+  for(let d=0; d<DAY_LABELS.length; d++){
+    const isWeekend = d===5; // Friday column
     rowVals.push(isWeekend ? rangeInt(0,20) : rangeInt(20,95));
   }
   heatValues.push(rowVals);
 }
 function renderHeatmap(){
-  const container = document.getElementById('heatmap');
-  let html = `<div class="heat-grid">` + DAY_LABELS.map(d=>`<div class="heat-day">${L(d)}</div>`).join('') + `</div>`;
-  html += `<div class="heat-grid" style="margin-top:4px;">`;
-  heatValues.forEach(row=>{
-    row.forEach(v=>{
+  const table = document.getElementById('heatmap');
+  let html = '<tr><th></th>' + DAY_LABELS.map(d=>`<th>${L(d)}</th>`).join('') + '</tr>';
+  HOUR_LABELS.forEach((hourLabel, hi)=>{
+    html += `<tr><th>${L(hourLabel)}</th>`;
+    heatValues[hi].forEach(v=>{
       const shade = v>75?'#0B7A6A': v>50?'#0EA894': v>25?'#7FCFC0':'#DCE9E7';
-      html += `<div class="heat-cell" style="background:${shade};">${v}</div>`;
+      html += `<td style="background:${shade};">${v}</td>`;
     });
+    html += '</tr>';
   });
-  html += `</div>`;
-  container.innerHTML = html;
+  table.innerHTML = html;
 }
 
 function renderUnderused(){
